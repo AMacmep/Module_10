@@ -2,16 +2,17 @@
 from threading import Thread
 import time
 
-class Knight(Thread):
-    day = 0
-    left_warriors = 100
 
-    def __init__(self, name:str, power:int):
+class Knight(Thread):
+
+    def __init__(self, name: str, power: int):
         Thread.__init__(self)
         self.name = name
         self.power = power
 
-    def battle(self):
+    def run(self):
+        day = 0
+        left_warriors = 100
         print(f'{self.name}, на нас напали!')
 
         while left_warriors > 0:
@@ -21,6 +22,7 @@ class Knight(Thread):
             time.sleep(1)
 
         print(f'{self.name} одержал победу спустя {day} дней(дня)!')
+
 
 first_knight = Knight('Sir Lancelot', 10)
 second_knight = Knight('Sir Galahad', 20)
